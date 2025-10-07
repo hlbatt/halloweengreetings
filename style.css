@@ -1,0 +1,157 @@
+body {
+    background-color: black;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    image-rendering: pixelated;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@font-face {
+    font-family: shuck-regular;
+    src: url(Shuck-Regular.ttf);
+}
+
+h1 {
+    font-family: "shuck-regular", Georgia, Times, Times New Roman, serif;
+    font-style: normal;
+    font-size: 50px;
+}
+
+
+/*PUMPKINS*/
+.marquee {
+    position: absolute;
+    display: flex;
+    overflow: hidden;
+    animation: scroll 20s linear infinite;
+}
+
+.marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    height: 50px;
+
+}
+
+.pumpkins {
+    min-width: 100%;
+    overflow: hidden;
+    height: 50px;
+    background-image: url(tumblr_c2575b6dd8ec11bb6102b59b2f2c18fc_f7a265e7_250.gif);
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+
+@keyframes scroll {
+    0% {
+        transform:translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/*CARD*/
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#envelope {
+    position: absolute;
+    width: 450px;
+    /* WIDTH OF ENVELOPE */
+    height: 300px;
+    /* HEIGHT OF ENVELOPE */
+    top: calc(50vh - 150px);
+    /* TOP OF ENVELOPE IS 1/2 the height of the screen - 1/2 the height of the envelope */
+    left: calc(50vw - 225px);
+    background-color: aqua;
+
+}
+
+#envelope>* {
+    position: absolute;
+    /* LETS US POSITION OUR ENVELOPE RELATIVE TO THE ENVELOPE ELEMENT */
+    top: 0;
+    /* TOP SIDE OF ENVELOPE */
+    left: 0;
+    /* LEFT SIDE CORNER OF ENVELOPE */
+    border-radius: 5px;
+    /* rounding corners slightly for more realism*/
+
+}
+
+#envelope-back {
+    display: block;
+    z-index: 0;
+    height: 300px;
+    width: 450px;
+    background-image: url(envelope-back.png);
+    background-size: cover;
+}
+
+#envelope-front {
+    display: block;
+    z-index: 10;
+    height: 300px;
+    width: 450px;
+    background-image: url(envelope-front.png);
+    background-size: cover;
+}
+
+#envelope-top {
+    display: flex;
+    z-index: 11;
+    height: 300px;
+    width: 450px;
+    background-image: url(envelope-top.png);
+    background-size: cover;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.151));
+}
+
+#letter {
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    left: 20px;
+    right: 20px;
+    bottom: 5px;
+    top: 50px;
+    overflow: hidden;
+    background-image: url(card.png);
+    background-size: cover;
+    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.151));
+    font-size: 15px;
+    padding: 10px;
+}
+
+#envelope .button {
+    z-index: 15;
+    display: block;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    background-image: url(seal.png);
+    background-size: cover;
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.378));
+    top: calc(150px - 50px);
+    left: calc(225px - 50px);
+}
+
+#envelope .button:hover {
+    transform: scale(1.02);
+    transform: rotate(-6deg);
+    transition: .2s;
+    filter: drop-shadow(1px 1px 4px #51203a);
+}
