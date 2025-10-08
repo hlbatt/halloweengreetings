@@ -20,42 +20,36 @@ h1 {
     font-size: 50px;
 }
 
+/* image ticker code begins */
 
-/*PUMPKINS*/
-.marquee {
-    position: absolute;
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    position: top fixed;
+}
+.ticker-wrapper {
     display: flex;
     overflow: hidden;
-    animation: scroll 20s linear infinite;
+    width: 120vw;
 }
 
-.marquee-content {
-    flex-shrink: 0;
+/*to ensure smooth looping without stutters,
+you can tinker with the scroll duration and the
+keyframes ending translateX values, to make sure 
+the keyframes loop when the end of the tiles reach 
+the right place. */
+
+.img-ticker {
     display: flex;
-    justify-content: space-around;
-    min-width: 100%;
-    height: 50px;
-
-}
-
-.pumpkins {
-    min-width: 100%;
-    overflow: hidden;
-    height: 50px;
-    background-image: url(tumblr_c2575b6dd8ec11bb6102b59b2f2c18fc_f7a265e7_250.gif);
-    background-repeat: repeat-x;
-    background-size: contain;
+    animation: scroll 30s linear infinite;
 }
 
 @keyframes scroll {
-    0% {
-        transform:translateX(0%);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
+
+/* image ticker code ends */
 
 /*CARD*/
 .card {
